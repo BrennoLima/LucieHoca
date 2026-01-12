@@ -73,7 +73,7 @@ const MobileMenu = ({ value, setValue }) => {
           }}
         >
           <img
-            src="assets/images/lucie-hoca.png"
+            src="/assets/images/lucie-hoca.png"
             alt="LH-logo"
             style={{ width: "75%", height: "auto" }}
           />
@@ -148,7 +148,7 @@ const DesktopMenu = ({ value, setValue }) => {
         }}
       >
         <img
-          src="assets/images/lucie-hoca-logo2.png"
+          src="/assets/images/lucie-hoca-logo2.png"
           alt="LH-logo"
           style={{ width: "100%", height: "auto" }}
         />

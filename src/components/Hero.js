@@ -33,7 +33,7 @@ const Hero = ({ onUpdateTabValue }) => {
           {isMobile ? (
             <Box>
               <img
-                src="assets/images/lucie-hoca-logo2.png"
+                src="/assets/images/lucie-hoca-logo2.png"
                 alt="LH-logo"
                 style={{ width: "100%", height: "auto" }}
               />
@@ -85,7 +85,7 @@ const Hero = ({ onUpdateTabValue }) => {
         >
           <Box
             component="img"
-            src="assets/illustrations/illustration6.jpg"
+            src="/assets/illustrations/illustration6.jpg"
             alt="Hero"
             sx={{
               objectFit: "cover",
