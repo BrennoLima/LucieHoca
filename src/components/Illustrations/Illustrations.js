@@ -15,91 +15,91 @@ import IllustrationCard from "./IllustrationCard";
 
 const ILLUSTRATIONS = [
   {
-    image: "/assets/illustrations/illustration1.jpg",
+    image: "/assets/images/illustration1.jpg",
     title: "The Watchful Leopard",
     description:
       "A surreal, wide-eyed leopard twists its body mid-motion, blending curiosity and quiet tension against a dreamlike blue ground.",
   },
   {
-    image: "/assets/illustrations/illustration2.jpg",
+    image: "/assets/images/illustration2.jpg",
     title: "Fishy Business",
     description:
       "Anthropomorphic creatures negotiate an absurd exchange, blurring the line between fable, satire, and human bureaucracy.",
   },
   {
-    image: "/assets/illustrations/illustration3.jpg",
+    image: "/assets/images/illustration3.jpg",
     title: "Monster House",
     description:
       "A distorted figure reaches toward a warped wooden house, suspended in a violent red landscape charged with unease and psychological tension.",
   },
   {
-    image: "/assets/illustrations/illustration4.jpg",
+    image: "/assets/images/illustration4.jpg",
     title: "The Night Courier",
     description:
       "A horned creature navigates a moonlit village, carrying an unseen burden through a frozen, storybook night.",
   },
   {
-    image: "/assets/illustrations/illustration5.jpg",
+    image: "/assets/images/illustration5.jpg",
     title: "When the Birds Came In",
     description:
       "Two children hide beneath blankets as a surreal swarm of birds floods the room, where fear and wonder collide.",
   },
   {
-    image: "/assets/illustrations/illustration6.jpg",
+    image: "/assets/images/illustration6.jpg",
     title: "The Alchemist",
     description:
       "A solitary figure studies a glowing jar beneath a cosmic sky, evoking curiosity and the magic of forgotten knowledge.",
   },
   {
-    image: "/assets/illustrations/illustration7.jpg",
+    image: "/assets/images/illustration7.jpg",
     title: "Bearer of Light",
     description:
       "A horned beast gazes upward as radiant light breaks through swirling skies, symbolizing revelation and awakening.",
   },
   {
-    image: "/assets/illustrations/illustration8.jpg",
+    image: "/assets/images/illustration8.jpg",
     title: "The Ember Guardian",
     description:
       "A fiery, sinewy creature emerges from darkness, embodying raw energy, resilience, and controlled chaos.",
   },
   {
-    image: "/assets/illustrations/illustration9.jpg",
+    image: "/assets/images/illustration9.jpg",
     title: "Falling Through Dreams",
     description:
       "A floating figure drifts through abstract currents, suspended between surrender and transformation.",
   },
   {
-    image: "/assets/illustrations/illustration10.jpg",
+    image: "/assets/images/illustration10.jpg",
     title: "The Hidden Grotto",
     description:
       "A glowing cavern reveals a secret path, inviting the viewer into a mysterious, otherworldly sanctuary.",
   },
   {
-    image: "/assets/illustrations/illustration11.jpg",
+    image: "/assets/images/illustration11.jpg",
     title: "The Moth King",
     description:
       "A regal insect-like creature sits in solemn stillness, balancing fragility and authority in a mythic portrait.",
   },
   {
-    image: "/assets/illustrations/illustration12.jpg",
+    image: "/assets/images/illustration12.jpg",
     title: "Cub of Curiosity",
     description:
       "A wide-eyed tiger cub pauses mid-step, capturing innocence, vulnerability, and untamed potential.",
   },
   {
-    image: "/assets/illustrations/illustration13.jpg",
+    image: "/assets/images/illustration13.jpg",
     title: "The Hanging Bat",
     description:
       "A bat dangles quietly in shadow, rendered with delicate detail that balances eeriness and quiet charm.",
   },
   {
-    image: "/assets/illustrations/illustration14.jpg",
+    image: "/assets/images/illustration14.jpg",
     title: "The Keeper of Yarn",
     description:
       "A small creature guards an oversized ball of yarn, a playful meditation on comfort, obsession, and care.",
   },
   {
-    image: "/assets/illustrations/illustration15.jpg",
+    image: "/assets/images/illustration15.jpg",
     title: "The Framed Familiar",
     description:
       "A stylized animal portrait enclosed in ornate detail, echoing antique illustration and timeless storytelling.",
