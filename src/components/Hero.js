@@ -85,7 +85,7 @@ const Hero = ({ onUpdateTabValue }) => {
         >
           <Box
             component="img"
-            src="/assets/images/illustration6.jpg"
+            src="/assets/images/Illustration6.jpg"
             alt="Hero"
             sx={{
               objectFit: "cover",
