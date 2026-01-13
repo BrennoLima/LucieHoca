@@ -21,9 +21,8 @@ import { SocialMedias } from "../components/SocialMedias";
 const TABS = [
   { label: "Home", value: 0 },
   { label: "Illustrations", value: 1 },
-  { label: "Graphics", value: 2 },
-  { label: "About", value: 3 },
-  { label: "Contact", value: 4 },
+  { label: "About", value: 2 },
+  { label: "Contact", value: 3 },
 ];
 
 const MobileMenu = ({ value, setValue }) => {

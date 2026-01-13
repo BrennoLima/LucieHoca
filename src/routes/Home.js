@@ -8,11 +8,10 @@ import { useActiveSection } from "../hooks/useActiveSection";
 import Illustrations from "../components/Illustrations/Illustrations";
 import SectionDivider from "../components/shared/SectionDivider";
 import Hero from "../components/Hero";
-import Graphics from "../components/Graphics";
 import About from "../components/About";
 import Contact from "../components/Contact";
 
-const SECTION_IDS = ["hero", "illustrations", "graphics", "about", "contact"];
+const SECTION_IDS = ["hero", "illustrations", "about", "contact"];
 
 export const Home = () => {
   const theme = createTheme(lightTheme);
@@ -92,8 +91,6 @@ export const Home = () => {
           <Hero onUpdateTabValue={onUpdateTabValue} />
           <SectionDivider />
           <Illustrations />
-          <SectionDivider />
-          <Graphics />
           <SectionDivider />
           <About onUpdateTabValue={onUpdateTabValue} />
           <SectionDivider />
