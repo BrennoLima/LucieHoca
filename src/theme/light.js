@@ -66,7 +66,7 @@ const baseTheme = createTheme({
       lineHeight: 1.6,
     },
     body2: {
-      color: "#555555",
+      color: "#3A3A3A",
       lineHeight: 1.6,
     },
 

@@ -6,6 +6,7 @@ import {
   Tab,
   Typography,
   Tabs,
+  Stack,
   useTheme,
   useMediaQuery,
   Divider,
@@ -79,43 +80,37 @@ const MobileMenu = ({ value, setValue }) => {
           />
         </Box>
         <Divider sx={{ mb: 2 }} />
-        <Tabs
-          variant="fullWidth"
-          orientation="vertical"
-          value={value}
-          onChange={handleTabChange}
-          aria-label="Menu"
-          sx={{
-            "& .MuiTab-root": {
-              width: "100%",
-              fontWeight: 400,
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            },
-            "& .Mui-selected": {
-              fontWeight: 800,
-            },
-            "& .MuiTabs-indicator": {
-              display: "none",
-            },
-          }}
-        >
-          {TABS.map((tab) => (
-            <Tab key={tab.value} label={tab.label} value={tab.value} />
-          ))}
-        </Tabs>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            mt: 2,
-            p: 2,
-          }}
-        >
-          <SocialMedias />
-        </Box>
+        <Stack direction="column" spacing={2} sx={{ mt: "10%" }}>
+          <Tabs
+            variant="fullWidth"
+            orientation="vertical"
+            value={value}
+            onChange={handleTabChange}
+            aria-label="Menu"
+            sx={{
+              "& .MuiTab-root": {
+                width: "100%",
+                fontWeight: 400,
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+              },
+              "& .Mui-selected": {
+                fontWeight: 800,
+              },
+              "& .MuiTabs-indicator": {
+                display: "none",
+              },
+            }}
+          >
+            {TABS.map((tab) => (
+              <Tab key={tab.value} label={tab.label} value={tab.value} />
+            ))}
+          </Tabs>
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <SocialMedias />
+          </Box>
+        </Stack>
 
         <IconButton
           size="large"

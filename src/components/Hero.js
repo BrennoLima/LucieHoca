@@ -22,7 +22,7 @@ const Hero = ({ onUpdateTabValue }) => {
         overflow: { xs: "hidden", md: "visible" },
       }}
     >
-      <Grid item size={{ xs: 12, md: 6 }} sx={{ mt: ["5%", "10%"] }}>
+      <Grid item size={{ xs: 12, md: 6 }} sx={{ mt: ["0", "10%"] }}>
         <Box
           sx={{
             p: { xs: 4, md: 8 },

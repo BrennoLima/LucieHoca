@@ -3,7 +3,6 @@ body {
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   /* Paper texture background */
   background-color: #f8f4fe;
   background-image: 
@@ -38,6 +37,9 @@ body {
     );
 }
 
-* {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   scrollbar-width: thin;
 }

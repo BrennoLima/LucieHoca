@@ -7,8 +7,8 @@ const SectionDivider = () => {
       sx={{
         display: "flex",
         justifyContent: "center",
-        my: 2,
         width: "100%",
+        my: -1.5,
       }}
     >
       <svg

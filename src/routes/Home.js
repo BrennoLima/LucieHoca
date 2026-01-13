@@ -4,7 +4,7 @@ import { Grid } from "@mui/material";
 
 import { Menu } from "../components/Menu";
 import { lightTheme } from "../theme/light";
-import { useScrollDirection } from "../hooks/useScrollDirection";
+import { useActiveSection } from "../hooks/useActiveSection";
 import Illustrations from "../components/Illustrations/Illustrations";
 import SectionDivider from "../components/shared/SectionDivider";
 import Hero from "../components/Hero";
@@ -12,78 +12,27 @@ import Graphics from "../components/Graphics";
 import About from "../components/About";
 import Contact from "../components/Contact";
 
-const TABS_COUNT = 5; // Number of tabs (0-4)
-
 const SECTION_IDS = ["hero", "illustrations", "graphics", "about", "contact"];
 
 export const Home = () => {
   const theme = createTheme(lightTheme);
   const [value, setValue] = useState(0);
   const scrollElementRef = useRef(null);
-  const [scrollElement, setScrollElement] = useState(null);
-  const {
-    direction: scrollDirection,
-    scrollCount,
-    setIgnoreScroll,
-  } = useScrollDirection({
-    threshold: 50,
-    scrollElement: scrollElement,
-  });
-  const lastScrollCount = useRef(0);
   const lastTabValue = useRef(0);
-  const lastDirectionChange = useRef(Date.now());
-  const scrollTimeout = useRef(null);
-  const isProgrammaticScroll = useRef(false);
 
-  // Update scroll element when ref is available
-  useEffect(() => {
-    if (scrollElementRef.current) {
-      setScrollElement(scrollElementRef.current);
+  // Detect which section is in view and update value
+  const { setIgnoreScroll } = useActiveSection(
+    SECTION_IDS,
+    (index) => {
+      setValue(index);
+    },
+    {
+      rootMargin: "-30% 0px -30% 0px",
+      threshold: 0.3,
     }
-  }, []);
+  );
 
-  // Handle scroll direction changes
-  useEffect(() => {
-    // Don't process scroll if we're in the middle of a programmatic scroll
-    if (isProgrammaticScroll.current) return;
-    if (!scrollDirection || scrollCount === lastScrollCount.current) return;
-
-    const now = Date.now();
-    // Throttle tab changes to avoid rapid switching
-    if (now - lastDirectionChange.current < 300) {
-      return;
-    }
-
-    // Clear any existing timeout
-    if (scrollTimeout.current) {
-      clearTimeout(scrollTimeout.current);
-    }
-
-    // Add a small delay to make the transition smoother
-    scrollTimeout.current = setTimeout(() => {
-      setValue((prevValue) => {
-        if (scrollDirection === "down") {
-          // Scroll down: move to next tab
-          const newValue = Math.min(prevValue + 1, TABS_COUNT - 1);
-          return newValue;
-        } else {
-          // Scroll up: move to previous tab
-          const newValue = Math.max(prevValue - 1, 0);
-          return newValue;
-        }
-      });
-      lastScrollCount.current = scrollCount;
-      lastDirectionChange.current = now;
-    }, 50);
-
-    return () => {
-      if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current);
-      }
-    };
-  }, [scrollDirection, scrollCount]);
-
-  // Scroll to section when tab changes
+  // Scroll to section when tab changes (menu click)
   useEffect(() => {
     // Skip if this is the initial render or value hasn't actually changed
     if (value === lastTabValue.current) return;
@@ -93,20 +42,18 @@ export const Home = () => {
     if (containerId) {
       const container = document.getElementById(containerId);
       if (container) {
-        // Set flag to ignore scroll events during programmatic scroll
-        isProgrammaticScroll.current = true;
+        // Temporarily ignore scroll detection during programmatic scroll
         setIgnoreScroll(true);
 
         container.scrollIntoView({ behavior: "smooth", block: "start" });
 
         // Re-enable scroll detection after smooth scroll completes
         setTimeout(() => {
-          isProgrammaticScroll.current = false;
           setIgnoreScroll(false);
-        }, 800);
+        }, 1000);
       }
     }
-  }, [value, scrollElement, setIgnoreScroll]);
+  }, [value, setIgnoreScroll]);
 
   const onUpdateTabValue = (newValue) => {
     setValue(newValue);
@@ -148,7 +95,7 @@ export const Home = () => {
           <SectionDivider />
           <Graphics />
           <SectionDivider />
-          <About />
+          <About onUpdateTabValue={onUpdateTabValue} />
           <SectionDivider />
           <Contact />
         </Grid>

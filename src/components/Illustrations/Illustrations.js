@@ -1,15 +1,7 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  Button,
-  Stack,
-  useTheme,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, Typography, Stack, useTheme, useMediaQuery } from "@mui/material";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 
 import IllustrationCard from "./IllustrationCard";
 
@@ -116,7 +108,6 @@ const Illustrations = () => {
         py: 2,
         height: "100vh",
         width: "100%",
-        boxSizing: "border-box",
       }}
     >
       <Typography textAlign="center" variant="h2" sx={{ my: 2 }}>
@@ -169,16 +160,6 @@ const Illustrations = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </Box>
-      <Box sx={{ mb: 4, display: "flex", justifyContent: "center" }}>
-        <Button
-          variant="outlined"
-          color="primary"
-          size="small"
-          endIcon={<ArrowRightIcon />}
-        >
-          See All
-        </Button>
       </Box>
     </Stack>
   );
