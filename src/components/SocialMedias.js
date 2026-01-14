@@ -21,7 +21,7 @@ export const SocialMedias = ({ direction = "row", size = "small" }) => {
           href="https://www.instagram.com/luciehoca_illustration/"
           target="_blank"
         >
-          <InstagramIcon />
+          <InstagramIcon color="primary" />
         </IconButton>
       </Tooltip>
       <Tooltip title="LinkedIn">
@@ -32,7 +32,7 @@ export const SocialMedias = ({ direction = "row", size = "small" }) => {
           href="https://www.linkedin.com/in/luciehoca"
           target="_blank"
         >
-          <LinkedInIcon />
+          <LinkedInIcon color="primary" />
         </IconButton>
       </Tooltip>
       <Tooltip title="Email">
@@ -43,7 +43,7 @@ export const SocialMedias = ({ direction = "row", size = "small" }) => {
           sx={btnClass}
           href="mailto:hocalucie98@gmail.com"
         >
-          <EmailIcon />
+          <EmailIcon color="primary" />
         </IconButton>
       </Tooltip>
     </Stack>

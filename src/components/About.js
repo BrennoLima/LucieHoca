@@ -101,7 +101,7 @@ const About = ({ onUpdateTabValue }) => {
             <Button
               variant="outlined"
               color="primary"
-              onClick={() => onUpdateTabValue(4)}
+              onClick={() => onUpdateTabValue(3)}
               size="small"
               sx={{ px: 4 }}
             >
