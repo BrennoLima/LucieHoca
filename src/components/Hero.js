@@ -23,12 +23,14 @@ const Hero = ({ onUpdateTabValue }) => {
       container
       id="hero"
       sx={{
-        height: ["unset", "unset", "100vh"],
+        minHeight: "100vh",
         width: "100%",
         overflow: "hidden",
+        display: "flex",
+        alignItems: "center",
       }}
     >
-      <Grid item size={{ xs: 12, md: 6 }} sx={{ mt: ["0", "10%"] }}>
+      <Grid item size={{ xs: 12, md: 6 }} sx={{ height: "100%" }}>
         <Box
           className={`fade-in${isVisible ? " fade-in--visible" : ""}`}
           sx={{

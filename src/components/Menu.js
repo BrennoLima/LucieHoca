@@ -42,10 +42,13 @@ const MobileMenu = ({ value, onUpdateTabValue }) => {
   return (
     <>
       <AppBar
-        position="sticky"
-        elevation={0}
+        position="fixed"
+        elevation={2}
         className={`fade-in${isVisible ? " fade-in--visible" : ""}`}
-        sx={{ backgroundColor: "#ffffff33" }}
+        sx={{
+          backgroundColor: "#ffffff33",
+          boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.1)",
+        }}
       >
         <Toolbar>
           <Typography

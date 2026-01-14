@@ -24,6 +24,7 @@ body {
     );
   background-size: 400px 400px, 4px 4px, 4px 4px;
   min-height: 100vh;
+  scroll-behavior: smooth;
 }
 
 .paper-texture {
