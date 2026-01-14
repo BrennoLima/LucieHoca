@@ -4,7 +4,6 @@ import { Grid } from "@mui/material";
 
 import { Menu } from "../components/Menu";
 import { lightTheme } from "../theme/light";
-import { useActiveSection } from "../hooks/useActiveSection";
 import Illustrations from "../components/Illustrations/Illustrations";
 import SectionDivider from "../components/shared/SectionDivider";
 import Hero from "../components/Hero";
@@ -17,42 +16,46 @@ export const Home = () => {
   const theme = createTheme(lightTheme);
   const [value, setValue] = useState(0);
   const scrollElementRef = useRef(null);
-  const lastTabValue = useRef(0);
 
-  // Detect which section is in view and update value
-  const { setIgnoreScroll } = useActiveSection(
-    SECTION_IDS,
-    (index) => {
-      setValue(index);
-    },
-    {
-      rootMargin: "-30% 0px -30% 0px",
-      threshold: 0.3,
-    }
-  );
-
-  // Scroll to section when tab changes (menu click)
   useEffect(() => {
-    // Skip if this is the initial render or value hasn't actually changed
-    if (value === lastTabValue.current) return;
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
 
-    lastTabValue.current = value;
-    const containerId = SECTION_IDS[value];
-    if (containerId) {
-      const container = document.getElementById(containerId);
-      if (container) {
-        // Temporarily ignore scroll detection during programmatic scroll
-        setIgnoreScroll(true);
+    const rootEl = scrollElementRef.current || null;
+    const sections = SECTION_IDS.map((id) =>
+      document.getElementById(id)
+    ).filter(Boolean);
 
-        container.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (sections.length === 0) return;
 
-        // Re-enable scroll detection after smooth scroll completes
-        setTimeout(() => {
-          setIgnoreScroll(false);
-        }, 1000);
-      }
+    if (prefersReducedMotion) {
+      sections.forEach((el) => el.classList.add("reveal", "reveal--visible"));
+      return;
     }
-  }, [value, setIgnoreScroll]);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("reveal--visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        root: rootEl,
+        threshold: 0.3,
+        rootMargin: "0px 0px -10% 0px",
+      }
+    );
+
+    sections.forEach((el) => {
+      el.classList.add("reveal");
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const onUpdateTabValue = (newValue) => {
     setValue(newValue);

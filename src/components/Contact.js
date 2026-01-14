@@ -14,7 +14,7 @@ import {
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-import { SocialMedias } from "./SocialMedias";
+import { SocialMedias } from "./shared/SocialMedias";
 
 const Contact = () => {
   const theme = useTheme();

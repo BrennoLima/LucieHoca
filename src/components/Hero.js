@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -11,6 +11,12 @@ import {
 const Hero = ({ onUpdateTabValue }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setIsVisible(true), 0);
+    return () => clearTimeout(t);
+  }, []);
 
   return (
     <Grid
@@ -24,6 +30,7 @@ const Hero = ({ onUpdateTabValue }) => {
     >
       <Grid item size={{ xs: 12, md: 6 }} sx={{ mt: ["0", "10%"] }}>
         <Box
+          className={`fade-in${isVisible ? " fade-in--visible" : ""}`}
           sx={{
             p: { xs: 4, md: 8 },
             display: "flex",
@@ -68,7 +75,7 @@ const Hero = ({ onUpdateTabValue }) => {
             <Button
               variant="outlined"
               color="primary"
-              onClick={() => onUpdateTabValue(4)}
+              onClick={() => onUpdateTabValue(3)}
             >
               Contact
             </Button>

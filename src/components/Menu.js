@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Toolbar,
   AppBar,
@@ -16,7 +16,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
-import { SocialMedias } from "../components/SocialMedias";
+import { SocialMedias } from "./shared/SocialMedias";
 
 const TABS = [
   { label: "Home", value: 0 },
@@ -27,6 +27,12 @@ const TABS = [
 
 const MobileMenu = ({ value, setValue }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setIsVisible(true), 0);
+    return () => clearTimeout(t);
+  }, []);
 
   const handleTabChange = (_, newValue) => {
     setIsMenuOpen(false);
@@ -38,6 +44,7 @@ const MobileMenu = ({ value, setValue }) => {
       <AppBar
         position="sticky"
         elevation={0}
+        className={`fade-in${isVisible ? " fade-in--visible" : ""}`}
         sx={{ backgroundColor: "#ffffff33" }}
       >
         <Toolbar>
@@ -131,8 +138,15 @@ const MobileMenu = ({ value, setValue }) => {
 };
 
 const DesktopMenu = ({ value, setValue }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setIsVisible(true), 0);
+    return () => clearTimeout(t);
+  }, []);
+
   return (
-    <Box>
+    <Box className={`fade-in${isVisible ? " fade-in--visible" : ""}`}>
       <Box
         sx={{
           width: 1,
