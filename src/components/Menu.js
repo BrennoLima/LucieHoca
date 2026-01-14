@@ -25,7 +25,7 @@ const TABS = [
   { label: "Contact", value: 3 },
 ];
 
-const MobileMenu = ({ value, setValue }) => {
+const MobileMenu = ({ value, onUpdateTabValue }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -36,7 +36,7 @@ const MobileMenu = ({ value, setValue }) => {
 
   const handleTabChange = (_, newValue) => {
     setIsMenuOpen(false);
-    setValue(newValue);
+    onUpdateTabValue(newValue);
   };
 
   return (
@@ -137,7 +137,7 @@ const MobileMenu = ({ value, setValue }) => {
   );
 };
 
-const DesktopMenu = ({ value, setValue }) => {
+const DesktopMenu = ({ value, onUpdateTabValue }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -167,7 +167,7 @@ const DesktopMenu = ({ value, setValue }) => {
           orientation="vertical"
           value={value}
           onChange={(_, newValue) => {
-            setValue(newValue);
+            onUpdateTabValue(newValue);
           }}
           aria-label="Menu"
           sx={{
@@ -212,13 +212,13 @@ const DesktopMenu = ({ value, setValue }) => {
   );
 };
 
-export const Menu = ({ value, setValue }) => {
+export const Menu = ({ value, onUpdateTabValue }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md")); // below 900px
 
   return isMobile ? (
-    <MobileMenu value={value} setValue={setValue} />
+    <MobileMenu value={value} onUpdateTabValue={onUpdateTabValue} />
   ) : (
-    <DesktopMenu value={value} setValue={setValue} />
+    <DesktopMenu value={value} onUpdateTabValue={onUpdateTabValue} />
   );
 };

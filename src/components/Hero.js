@@ -23,9 +23,9 @@ const Hero = ({ onUpdateTabValue }) => {
       container
       id="hero"
       sx={{
-        height: "100vh",
+        height: ["unset", "unset", "100vh"],
         width: "100%",
-        overflow: { xs: "hidden", md: "visible" },
+        overflow: "hidden",
       }}
     >
       <Grid item size={{ xs: 12, md: 6 }} sx={{ mt: ["0", "10%"] }}>

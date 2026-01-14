@@ -83,7 +83,10 @@ ${formData.name}`;
   };
 
   return (
-    <Box id="contact" sx={{ height: "100vh", p: { xs: 4, md: 8 } }}>
+    <Box
+      id="contact"
+      sx={{ height: ["unset", "unset", "100vh"], p: { xs: 4, md: 8 } }}
+    >
       <Box sx={{ width: "100%" }}>
         <Typography textAlign="center" variant="h2">
           <i>Get In Touch</i>
@@ -177,7 +180,7 @@ ${formData.name}`;
               <img
                 src="/assets/images/lucie-hoca.png"
                 alt="LH-logo"
-                style={{ width: isMobile ? "70%" : "40%", height: "auto" }}
+                style={{ width: isMobile ? "90%" : "50%", height: "auto" }}
               />
             </Box>
             <Grid
